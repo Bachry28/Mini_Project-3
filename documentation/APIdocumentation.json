@@ -1,0 +1,1434 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "Mini Project 3",
+      "contact": {}
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "securityDefinitions": {},
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/register": {
+        "post": {
+          "summary": "Register User",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "RegisterUser",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "multipart/form-data"
+          ],
+          "parameters": [
+            {
+              "name": "first_name",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "last_name",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "username",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "password",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "foto",
+              "in": "formData",
+              "required": true,
+              "type": "file",
+              "format": "file",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/login": {
+        "post": {
+          "summary": "user login",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "userlogin",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/userloginrequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/post": {
+        "get": {
+          "summary": "http://localhost:8000/post",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "http://localhost:8000/post",
+          "deprecated": false,
+          "produces": [
+            "application/json; charset=utf-8"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/GetAllPost"
+              },
+              "examples": {
+                "application/json; charset=utf-8": {
+                  "message": "Successfully fetched all posts",
+                  "posts": [
+                    {
+                      "post_id": 4,
+                      "user_id": 6,
+                      "title": "Second Post",
+                      "description": "This is the second post.",
+                      "image": "second_post.jpg",
+                      "created_at": "2024-02-18T07:31:02.021Z",
+                      "updated_at": "2024-02-18T07:31:02.021Z"
+                    },
+                    {
+                      "post_id": 5,
+                      "user_id": 8,
+                      "title": "Hanil Service Training",
+                      "description": "So Proudly get invitation going to Korea ",
+                      "image": "upload\\training.jpg",
+                      "created_at": "2024-02-18T09:23:50.349Z",
+                      "updated_at": "2024-02-18T09:23:50.349Z"
+                    },
+                    {
+                      "post_id": 6,
+                      "user_id": 5,
+                      "title": "Test Update",
+                      "description": "update test API",
+                      "image": "upload\\unnamed(1).png",
+                      "created_at": "2024-02-18T14:37:39.592Z",
+                      "updated_at": "2024-02-18T14:50:45.952Z"
+                    }
+                  ]
+                }
+              },
+              "headers": {
+                "X-Powered-By": {
+                  "type": "string",
+                  "default": "Express"
+                },
+                "Access-Control-Allow-Origin": {
+                  "type": "string",
+                  "default": "http://localhost:5173"
+                },
+                "Vary": {
+                  "type": "string",
+                  "default": "Origin"
+                },
+                "Access-Control-Allow-Credentials": {
+                  "type": "string",
+                  "default": "true"
+                },
+                "Content-Length": {
+                  "type": "string",
+                  "default": "670"
+                },
+                "ETag": {
+                  "type": "string",
+                  "default": "W/\"29e-k6fUrGnt0naE3c9w59V3hMZmS18\""
+                },
+                "Date": {
+                  "type": "string",
+                  "default": "Sun, 18 Feb 2024 14:55:09 GMT"
+                },
+                "Connection": {
+                  "type": "string",
+                  "default": "keep-alive"
+                },
+                "Keep-Alive": {
+                  "type": "string",
+                  "default": "timeout=5"
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "http://localhost:8000/post",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Posthttp://localhost:8000/post",
+          "deprecated": false,
+          "produces": [
+            "application/json; charset=utf-8"
+          ],
+          "consumes": [
+            "multipart/form-data"
+          ],
+          "parameters": [
+            {
+              "name": "user_id",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "title",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "description",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "image",
+              "in": "formData",
+              "required": true,
+              "type": "file",
+              "format": "file",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/CreatePost"
+              },
+              "examples": {
+                "application/json; charset=utf-8": {
+                  "message": "Successfully created post",
+                  "post": {
+                    "post_id": 5,
+                    "user_id": 8,
+                    "title": "Hanil Service Training",
+                    "description": "So Proudly get invitation going to Korea ",
+                    "image": "upload\\training.jpg",
+                    "created_at": "2024-02-18T09:23:50.349Z",
+                    "updated_at": "2024-02-18T09:23:50.349Z"
+                  }
+                }
+              },
+              "headers": {
+                "X-Powered-By": {
+                  "type": "string",
+                  "default": "Express"
+                },
+                "Access-Control-Allow-Origin": {
+                  "type": "string",
+                  "default": "http://localhost:5173"
+                },
+                "Vary": {
+                  "type": "string",
+                  "default": "Origin"
+                },
+                "Access-Control-Allow-Credentials": {
+                  "type": "string",
+                  "default": "true"
+                },
+                "Content-Length": {
+                  "type": "string",
+                  "default": "274"
+                },
+                "ETag": {
+                  "type": "string",
+                  "default": "W/\"112-8ptzQjx/jZZKDXKv3Ct3nbHRteg\""
+                },
+                "Date": {
+                  "type": "string",
+                  "default": "Sun, 18 Feb 2024 09:23:50 GMT"
+                },
+                "Connection": {
+                  "type": "string",
+                  "default": "keep-alive"
+                },
+                "Keep-Alive": {
+                  "type": "string",
+                  "default": "timeout=5"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/post/{id}": {
+        "get": {
+          "summary": "http://localhost:8000/post/:id",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "http://localhost:8000/post/:id",
+          "deprecated": false,
+          "produces": [
+            "application/json; charset=utf-8"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/GetAllPostByID"
+              },
+              "examples": {
+                "application/json; charset=utf-8": {
+                  "message": "Successfully fetched post by ID",
+                  "post": {
+                    "post_id": 4,
+                    "user_id": 6,
+                    "title": "Second Post",
+                    "description": "This is the second post.",
+                    "image": "second_post.jpg",
+                    "created_at": "2024-02-18T07:31:02.021Z",
+                    "updated_at": "2024-02-18T07:31:02.021Z"
+                  }
+                }
+              },
+              "headers": {
+                "X-Powered-By": {
+                  "type": "string",
+                  "default": "Express"
+                },
+                "Access-Control-Allow-Origin": {
+                  "type": "string",
+                  "default": "http://localhost:5173"
+                },
+                "Vary": {
+                  "type": "string",
+                  "default": "Origin"
+                },
+                "Access-Control-Allow-Credentials": {
+                  "type": "string",
+                  "default": "true"
+                },
+                "Content-Length": {
+                  "type": "string",
+                  "default": "247"
+                },
+                "ETag": {
+                  "type": "string",
+                  "default": "W/\"f7-rRSTeEsNwlKO60rj5/s9nVmcZOc\""
+                },
+                "Date": {
+                  "type": "string",
+                  "default": "Sun, 18 Feb 2024 14:54:37 GMT"
+                },
+                "Connection": {
+                  "type": "string",
+                  "default": "keep-alive"
+                },
+                "Keep-Alive": {
+                  "type": "string",
+                  "default": "timeout=5"
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "http://localhost:8000/post/:id1",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "http://localhost:8000/post/:id1",
+          "deprecated": false,
+          "produces": [
+            "application/json; charset=utf-8"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/DeletePostByID"
+              },
+              "examples": {
+                "application/json; charset=utf-8": {
+                  "message": "Successfully deleted post with ID: 5"
+                }
+              },
+              "headers": {
+                "X-Powered-By": {
+                  "type": "string",
+                  "default": "Express"
+                },
+                "Access-Control-Allow-Origin": {
+                  "type": "string",
+                  "default": "http://localhost:5173"
+                },
+                "Vary": {
+                  "type": "string",
+                  "default": "Origin"
+                },
+                "Access-Control-Allow-Credentials": {
+                  "type": "string",
+                  "default": "true"
+                },
+                "Content-Length": {
+                  "type": "string",
+                  "default": "50"
+                },
+                "ETag": {
+                  "type": "string",
+                  "default": "W/\"32-IJb3rvB58v21BzmxlFGfd9iVtWw\""
+                },
+                "Date": {
+                  "type": "string",
+                  "default": "Sun, 18 Feb 2024 15:05:28 GMT"
+                },
+                "Connection": {
+                  "type": "string",
+                  "default": "keep-alive"
+                },
+                "Keep-Alive": {
+                  "type": "string",
+                  "default": "timeout=5"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/post/{id}/update": {
+        "put": {
+          "summary": "http://localhost:8000/post/:id/update",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "http://localhost:8000/post/:id/update",
+          "deprecated": false,
+          "produces": [
+            "application/json; charset=utf-8"
+          ],
+          "consumes": [
+            "multipart/form-data"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "user_id",
+              "in": "formData",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "title",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "description",
+              "in": "formData",
+              "required": true,
+              "type": "string",
+              "description": ""
+            },
+            {
+              "name": "image",
+              "in": "formData",
+              "required": true,
+              "type": "file",
+              "format": "file",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/UpdatePost"
+              },
+              "examples": {
+                "application/json; charset=utf-8": {
+                  "message": "Successfully updated post",
+                  "post": {
+                    "post_id": 6,
+                    "user_id": 5,
+                    "title": "Test Lagi",
+                    "description": "update test API",
+                    "image": "upload\\unnamed(1).png",
+                    "created_at": "2024-02-18T14:37:39.592Z",
+                    "updated_at": "2024-02-18T14:56:19.975Z"
+                  }
+                }
+              },
+              "headers": {
+                "X-Powered-By": {
+                  "type": "string",
+                  "default": "Express"
+                },
+                "Access-Control-Allow-Origin": {
+                  "type": "string",
+                  "default": "http://localhost:5173"
+                },
+                "Vary": {
+                  "type": "string",
+                  "default": "Origin"
+                },
+                "Access-Control-Allow-Credentials": {
+                  "type": "string",
+                  "default": "true"
+                },
+                "Content-Length": {
+                  "type": "string",
+                  "default": "237"
+                },
+                "ETag": {
+                  "type": "string",
+                  "default": "W/\"ed-/rsduprpoG+ozo9qxWc1/UFcGMg\""
+                },
+                "Date": {
+                  "type": "string",
+                  "default": "Sun, 18 Feb 2024 14:56:19 GMT"
+                },
+                "Connection": {
+                  "type": "string",
+                  "default": "keep-alive"
+                },
+                "Keep-Alive": {
+                  "type": "string",
+                  "default": "timeout=5"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/comment": {
+        "get": {
+          "summary": "http://localhost:8000/comment",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "http://localhost:8000/comment",
+          "deprecated": false,
+          "produces": [
+            "application/json; charset=utf-8"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/GetAllComment"
+              },
+              "examples": {
+                "application/json; charset=utf-8": {
+                  "message": "Successfully fetched all comments",
+                  "comments": [
+                    {
+                      "comment_id": 5,
+                      "user_id": 8,
+                      "post_id": 5,
+                      "comment": "Test Update",
+                      "created_at": "2024-02-18T10:36:00.841Z",
+                      "updated_at": "2024-02-18T10:39:24.419Z"
+                    }
+                  ]
+                }
+              },
+              "headers": {
+                "X-Powered-By": {
+                  "type": "string",
+                  "default": "Express"
+                },
+                "Access-Control-Allow-Origin": {
+                  "type": "string",
+                  "default": "http://localhost:5173"
+                },
+                "Vary": {
+                  "type": "string",
+                  "default": "Origin"
+                },
+                "Access-Control-Allow-Credentials": {
+                  "type": "string",
+                  "default": "true"
+                },
+                "Content-Length": {
+                  "type": "string",
+                  "default": "205"
+                },
+                "ETag": {
+                  "type": "string",
+                  "default": "W/\"cd-i3MpIiNJCgPgwbe3Zk0rR0wGAfw\""
+                },
+                "Date": {
+                  "type": "string",
+                  "default": "Sun, 18 Feb 2024 14:56:32 GMT"
+                },
+                "Connection": {
+                  "type": "string",
+                  "default": "keep-alive"
+                },
+                "Keep-Alive": {
+                  "type": "string",
+                  "default": "timeout=5"
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "http://localhost:8000/comment",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "Posthttp://localhost:8000/comment",
+          "deprecated": false,
+          "produces": [
+            "application/json; charset=utf-8"
+          ],
+          "parameters": [
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/http%3A~1~1localhost%3A8000~1commentrequest"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/CreateComment"
+              },
+              "examples": {
+                "application/json; charset=utf-8": {
+                  "message": "Successfully created comment",
+                  "comment": {
+                    "comment_id": 6,
+                    "user_id": 8,
+                    "post_id": 5,
+                    "comment": "Wow",
+                    "created_at": "2024-02-18T14:57:14.515Z",
+                    "updated_at": "2024-02-18T14:57:14.515Z"
+                  }
+                }
+              },
+              "headers": {
+                "X-Powered-By": {
+                  "type": "string",
+                  "default": "Express"
+                },
+                "Access-Control-Allow-Origin": {
+                  "type": "string",
+                  "default": "http://localhost:5173"
+                },
+                "Vary": {
+                  "type": "string",
+                  "default": "Origin"
+                },
+                "Access-Control-Allow-Credentials": {
+                  "type": "string",
+                  "default": "true"
+                },
+                "Content-Length": {
+                  "type": "string",
+                  "default": "189"
+                },
+                "ETag": {
+                  "type": "string",
+                  "default": "W/\"bd-T+7PPBFR8F6YkGlBzDdqrGsMVf8\""
+                },
+                "Date": {
+                  "type": "string",
+                  "default": "Sun, 18 Feb 2024 14:57:14 GMT"
+                },
+                "Connection": {
+                  "type": "string",
+                  "default": "keep-alive"
+                },
+                "Keep-Alive": {
+                  "type": "string",
+                  "default": "timeout=5"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/comment/{id}": {
+        "get": {
+          "summary": "http://localhost:8000/comment/:id",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "http://localhost:8000/comment/:id",
+          "deprecated": false,
+          "produces": [
+            "application/json; charset=utf-8"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/GetCommentByID"
+              },
+              "examples": {
+                "application/json; charset=utf-8": {
+                  "message": "Successfully fetched comment by ID",
+                  "comment": {
+                    "comment_id": 5,
+                    "user_id": 8,
+                    "post_id": 5,
+                    "comment": "Test Update",
+                    "created_at": "2024-02-18T10:36:00.841Z",
+                    "updated_at": "2024-02-18T10:39:24.419Z"
+                  }
+                }
+              },
+              "headers": {
+                "X-Powered-By": {
+                  "type": "string",
+                  "default": "Express"
+                },
+                "Access-Control-Allow-Origin": {
+                  "type": "string",
+                  "default": "http://localhost:5173"
+                },
+                "Vary": {
+                  "type": "string",
+                  "default": "Origin"
+                },
+                "Access-Control-Allow-Credentials": {
+                  "type": "string",
+                  "default": "true"
+                },
+                "Content-Length": {
+                  "type": "string",
+                  "default": "203"
+                },
+                "ETag": {
+                  "type": "string",
+                  "default": "W/\"cb-htmdr53TxCXjRpHisfrkKm48uzI\""
+                },
+                "Date": {
+                  "type": "string",
+                  "default": "Sun, 18 Feb 2024 14:56:59 GMT"
+                },
+                "Connection": {
+                  "type": "string",
+                  "default": "keep-alive"
+                },
+                "Keep-Alive": {
+                  "type": "string",
+                  "default": "timeout=5"
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "http://localhost:8000/comment/:id1",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "http://localhost:8000/comment/:id1",
+          "deprecated": false,
+          "produces": [
+            "application/json; charset=utf-8"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/DeleteCommentByID"
+              },
+              "examples": {
+                "application/json; charset=utf-8": {
+                  "message": "Successfully deleted comment with ID: 5"
+                }
+              },
+              "headers": {
+                "X-Powered-By": {
+                  "type": "string",
+                  "default": "Express"
+                },
+                "Access-Control-Allow-Origin": {
+                  "type": "string",
+                  "default": "http://localhost:5173"
+                },
+                "Vary": {
+                  "type": "string",
+                  "default": "Origin"
+                },
+                "Access-Control-Allow-Credentials": {
+                  "type": "string",
+                  "default": "true"
+                },
+                "Content-Length": {
+                  "type": "string",
+                  "default": "53"
+                },
+                "ETag": {
+                  "type": "string",
+                  "default": "W/\"35-5WTjX8v9cxhDMT1KHrruQcesKI8\""
+                },
+                "Date": {
+                  "type": "string",
+                  "default": "Sun, 18 Feb 2024 15:04:29 GMT"
+                },
+                "Connection": {
+                  "type": "string",
+                  "default": "keep-alive"
+                },
+                "Keep-Alive": {
+                  "type": "string",
+                  "default": "timeout=5"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/comment/{id}/update": {
+        "put": {
+          "summary": "http://localhost:8000/comment/:id/update",
+          "tags": [
+            "Misc"
+          ],
+          "operationId": "http://localhost:8000/comment/:id/update",
+          "deprecated": false,
+          "produces": [
+            "application/json; charset=utf-8"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32",
+              "description": ""
+            },
+            {
+              "name": "Body",
+              "in": "body",
+              "required": true,
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/http%3A~1~1localhost%3A8000~1comment~1%3Aid~1updaterequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/UpdateComment"
+              },
+              "examples": {
+                "application/json; charset=utf-8": {
+                  "message": "Successfully updated comment",
+                  "comment": {
+                    "comment_id": 5,
+                    "user_id": 8,
+                    "post_id": 5,
+                    "comment": "Test Lagi",
+                    "created_at": "2024-02-18T10:36:00.841Z",
+                    "updated_at": "2024-02-18T14:58:06.318Z"
+                  }
+                }
+              },
+              "headers": {
+                "X-Powered-By": {
+                  "type": "string",
+                  "default": "Express"
+                },
+                "Access-Control-Allow-Origin": {
+                  "type": "string",
+                  "default": "http://localhost:5173"
+                },
+                "Vary": {
+                  "type": "string",
+                  "default": "Origin"
+                },
+                "Access-Control-Allow-Credentials": {
+                  "type": "string",
+                  "default": "true"
+                },
+                "Content-Length": {
+                  "type": "string",
+                  "default": "195"
+                },
+                "ETag": {
+                  "type": "string",
+                  "default": "W/\"c3-c70AvTGGUtAgbSWc6NCCrVV0NTc\""
+                },
+                "Date": {
+                  "type": "string",
+                  "default": "Sun, 18 Feb 2024 14:58:06 GMT"
+                },
+                "Connection": {
+                  "type": "string",
+                  "default": "keep-alive"
+                },
+                "Keep-Alive": {
+                  "type": "string",
+                  "default": "timeout=5"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "userloginrequest": {
+        "title": "userloginrequest",
+        "example": {
+          "username": "Bahry",
+          "password": "bahry"
+        },
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "GetAllPost": {
+        "title": "GetAllPost",
+        "example": {
+          "message": "Successfully fetched all posts",
+          "posts": [
+            {
+              "post_id": 4,
+              "user_id": 6,
+              "title": "Second Post",
+              "description": "This is the second post.",
+              "image": "second_post.jpg",
+              "created_at": "2024-02-18T07:31:02.021Z",
+              "updated_at": "2024-02-18T07:31:02.021Z"
+            },
+            {
+              "post_id": 5,
+              "user_id": 8,
+              "title": "Hanil Service Training",
+              "description": "So Proudly get invitation going to Korea ",
+              "image": "upload\\training.jpg",
+              "created_at": "2024-02-18T09:23:50.349Z",
+              "updated_at": "2024-02-18T09:23:50.349Z"
+            },
+            {
+              "post_id": 6,
+              "user_id": 5,
+              "title": "Test Update",
+              "description": "update test API",
+              "image": "upload\\unnamed(1).png",
+              "created_at": "2024-02-18T14:37:39.592Z",
+              "updated_at": "2024-02-18T14:50:45.952Z"
+            }
+          ]
+        },
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "posts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Post"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "posts"
+        ]
+      },
+      "Post": {
+        "title": "Post",
+        "example": {
+          "post_id": 4,
+          "user_id": 6,
+          "title": "Second Post",
+          "description": "This is the second post.",
+          "image": "second_post.jpg",
+          "created_at": "2024-02-18T07:31:02.021Z",
+          "updated_at": "2024-02-18T07:31:02.021Z"
+        },
+        "type": "object",
+        "properties": {
+          "post_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "post_id",
+          "user_id",
+          "title",
+          "description",
+          "image",
+          "created_at",
+          "updated_at"
+        ]
+      },
+      "GetAllPostByID": {
+        "title": "GetAllPostByID",
+        "example": {
+          "message": "Successfully fetched post by ID",
+          "post": {
+            "post_id": 4,
+            "user_id": 6,
+            "title": "Second Post",
+            "description": "This is the second post.",
+            "image": "second_post.jpg",
+            "created_at": "2024-02-18T07:31:02.021Z",
+            "updated_at": "2024-02-18T07:31:02.021Z"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "post": {
+            "$ref": "#/definitions/Post"
+          }
+        },
+        "required": [
+          "message",
+          "post"
+        ]
+      },
+      "CreatePost": {
+        "title": "CreatePost",
+        "example": {
+          "message": "Successfully created post",
+          "post": {
+            "post_id": 5,
+            "user_id": 8,
+            "title": "Hanil Service Training",
+            "description": "So Proudly get invitation going to Korea ",
+            "image": "upload\\training.jpg",
+            "created_at": "2024-02-18T09:23:50.349Z",
+            "updated_at": "2024-02-18T09:23:50.349Z"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "post": {
+            "$ref": "#/definitions/Post"
+          }
+        },
+        "required": [
+          "message",
+          "post"
+        ]
+      },
+      "UpdatePost": {
+        "title": "UpdatePost",
+        "example": {
+          "message": "Successfully updated post",
+          "post": {
+            "post_id": 6,
+            "user_id": 5,
+            "title": "Test Lagi",
+            "description": "update test API",
+            "image": "upload\\unnamed(1).png",
+            "created_at": "2024-02-18T14:37:39.592Z",
+            "updated_at": "2024-02-18T14:56:19.975Z"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "post": {
+            "$ref": "#/definitions/Post"
+          }
+        },
+        "required": [
+          "message",
+          "post"
+        ]
+      },
+      "GetAllComment": {
+        "title": "GetAllComment",
+        "example": {
+          "message": "Successfully fetched all comments",
+          "comments": [
+            {
+              "comment_id": 5,
+              "user_id": 8,
+              "post_id": 5,
+              "comment": "Test Update",
+              "created_at": "2024-02-18T10:36:00.841Z",
+              "updated_at": "2024-02-18T10:39:24.419Z"
+            }
+          ]
+        },
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Comment"
+            }
+          }
+        },
+        "required": [
+          "message",
+          "comments"
+        ]
+      },
+      "Comment": {
+        "title": "Comment",
+        "example": {
+          "comment_id": 5,
+          "user_id": 8,
+          "post_id": 5,
+          "comment": "Test Update",
+          "created_at": "2024-02-18T10:36:00.841Z",
+          "updated_at": "2024-02-18T10:39:24.419Z"
+        },
+        "type": "object",
+        "properties": {
+          "comment_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "post_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "comment_id",
+          "user_id",
+          "post_id",
+          "comment",
+          "created_at",
+          "updated_at"
+        ]
+      },
+      "GetCommentByID": {
+        "title": "GetCommentByID",
+        "example": {
+          "message": "Successfully fetched comment by ID",
+          "comment": {
+            "comment_id": 5,
+            "user_id": 8,
+            "post_id": 5,
+            "comment": "Test Update",
+            "created_at": "2024-02-18T10:36:00.841Z",
+            "updated_at": "2024-02-18T10:39:24.419Z"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "comment": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "required": [
+          "message",
+          "comment"
+        ]
+      },
+      "http://localhost:8000/commentrequest": {
+        "title": "http://localhost:8000/commentrequest",
+        "example": {
+          "user_id": 8,
+          "post_id": 5,
+          "comment": "Wow"
+        },
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "post_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "comment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "post_id",
+          "comment"
+        ]
+      },
+      "CreateComment": {
+        "title": "CreateComment",
+        "example": {
+          "message": "Successfully created comment",
+          "comment": {
+            "comment_id": 6,
+            "user_id": 8,
+            "post_id": 5,
+            "comment": "Wow",
+            "created_at": "2024-02-18T14:57:14.515Z",
+            "updated_at": "2024-02-18T14:57:14.515Z"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "comment": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "required": [
+          "message",
+          "comment"
+        ]
+      },
+      "http://localhost:8000/comment/:id/updaterequest": {
+        "title": "http://localhost:8000/comment/:id/updaterequest",
+        "example": {
+          "user_id": 8,
+          "post_id": 5,
+          "comment": "Test Lagi"
+        },
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "post_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "comment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id",
+          "post_id",
+          "comment"
+        ]
+      },
+      "UpdateComment": {
+        "title": "UpdateComment",
+        "example": {
+          "message": "Successfully updated comment",
+          "comment": {
+            "comment_id": 5,
+            "user_id": 8,
+            "post_id": 5,
+            "comment": "Test Lagi",
+            "created_at": "2024-02-18T10:36:00.841Z",
+            "updated_at": "2024-02-18T14:58:06.318Z"
+          }
+        },
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "comment": {
+            "$ref": "#/definitions/Comment"
+          }
+        },
+        "required": [
+          "message",
+          "comment"
+        ]
+      },
+      "DeleteCommentByID": {
+        "title": "DeleteCommentByID",
+        "example": {
+          "message": "Successfully deleted comment with ID: 5"
+        },
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ]
+      },
+      "DeletePostByID": {
+        "title": "DeletePostByID",
+        "example": {
+          "message": "Successfully deleted post with ID: 5"
+        },
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "message"
+        ]
+      }
+    },
+    "tags": [
+      {
+        "name": "Misc",
+        "description": ""
+      }
+    ]
+  }
