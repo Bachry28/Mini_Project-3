@@ -26,10 +26,10 @@ app.use(cors({
 
 
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
-//register
+
 app.use("/", userregisterroutes);
 
-//Login 
+
 app.use("/", userloginroutes);
 
 
@@ -38,7 +38,7 @@ app.use("/comment", commentroutes);
 app.use("/post", postroutes);
 
 
-// Middleware untuk penanganan kesalahan jika rute tidak ditemukan
+
 app.use((req, res, next) => {
   const error = new Error("Not found");
   error.status = 404;

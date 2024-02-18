@@ -1,13 +1,13 @@
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
 const { PrismaClient } = require("@prisma/client");
-const cookieParser = require('cookie-parser'); // Add cookie-parser
+const cookieParser = require('cookie-parser');
 const prisma = new PrismaClient();
 
 function authenticateUser() {
   return async (req, res, next) => {
     try {
-      // Use req.cookies.token instead of Cookies.get('token')
+    
       const token = req.cookies.token;
 
       if (token == null) return res.sendStatus(401);
@@ -25,15 +25,15 @@ function authenticateUser() {
       if (user) {
         next(user);
       } else {
-        res.sendStatus(403); // Forbidden
+        res.sendStatus(403); 
       }
     } catch (error) {
       console.error("Authentication error:", error);
-      res.sendStatus(500); // Internal Server Error
+      res.sendStatus(500); 
     }
   };
 }
 
-// Use cookieParser middleware
+
 
 module.exports = { authenticateUser };

@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 const commentcontroller = {
     getAllcomment: async (req, res) => {
         try {
-            // Retrieve all comments from the database
+            
             const comments = await prisma.comment.findMany();
             res.status(200).json({ message: "Successfully fetched all comments", comments });
         } catch (error) {
@@ -15,12 +15,12 @@ const commentcontroller = {
     getcommentById: async (req, res) => {
         try {
             const { id } = req.params;
-            // Retrieve a specific comment by its ID from the database
+           
             const comment = await prisma.comment.findUnique({
                 where: { comment_id: Number(id) },
             });
             if (!comment) {
-                // If comment with specified ID is not found, return a 404 status code
+              
                 res.status(404).json({ message: `Comment with ID ${id} not found` });
                 return;
             }
@@ -32,8 +32,8 @@ const commentcontroller = {
     },
     createcomment: async (req, res) => {
         try {
-            const { user_id, post_id, comment } = req.body; // Extract user_id, post_id, and comment from the request body
-            // Create a new comment in the database
+            const { user_id, post_id, comment } = req.body; 
+       
             const newComment = await prisma.comment.create({
                 data: {
                     user_id,
@@ -54,7 +54,7 @@ const commentcontroller = {
         try {
             const id = parseInt(req.params.id);
             const {  user_id, post_id, comment } = req.body;
-            // Update an existing comment in the database
+      
             const updatedComment = await prisma.comment.update({
                 where: { comment_id: id },
                 data: {
@@ -72,7 +72,7 @@ const commentcontroller = {
     deletecomment: async (req, res) => {
         try {
             const id = parseInt(req.params.id);
-            // Delete a comment from the database
+         
             await prisma.comment.delete({
                 where: { comment_id: id },
             });
